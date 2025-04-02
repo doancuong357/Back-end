@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Bao Nhan",
+      "gender": "male",
+      "age": 18
+    },
+    {
+      "id": 2,
+      "fullname": "Nhan Bao",
+      "gender": "male",
+      "age": 15
+    },
+    {
+      "id": 3,
+      "fullname": "Doan Viet Cuong",
+      "gender": "male",
+      "age": 25
+    }
+  ]
+}
