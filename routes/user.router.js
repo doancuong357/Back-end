@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 const DB_FILE = path.resolve('./db.json');
 const writeData = (data) => {
+    //nên dùng async await kết hợp với try-catch
     fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
 };
 // Get all users
@@ -23,10 +24,12 @@ router.get('/:id', (req, res) => {
 });
 // Create new user
 router.post('/', (req, res) => {
+    //ở đây client có thể truyền id lên được ở body, nên tách ra phần sinh id riêng 
     const newUser = {
         id: db.users.length ? db.users[db.users.length - 1].id + 1 : 1,
         ...req.body
     };
+    //thêm bước kiểm tra xem dữ liệu truyền vào có đầy đủ hay không
     db.users.push(newUser);
     writeData({ users: db.users });
     res.status(201).json(newUser);
